@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flex</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background: red;
+            resize: both;
+            overflow: auto;
+            display: flex;
+            /* resize: both; 加上 overflow: auto; 可以调整元素的大小 */
+            /* display: flex; 加上 margin: auto;  实现上下左右剧中 */
+        }
+        .item{
+            width: 100px;
+            height: 100px;
+            background: white;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div resize='true' class="box">
+        <div class="item">
+            item
+        </div>
+    </div>
+</body>
+</html>

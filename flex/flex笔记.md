@@ -1,0 +1,40 @@
+
+##   resize: both; 加上 overflow: auto; 
+###  可以调整元素的大小 
+flex.html
+
+##   display: flex; 加上 margin: auto;  
+###  实现上下左右剧中 
+flex.html
+
+###  display: flex;父元素下的直接子元素会变成 display:block; 孙子元素无影响 
+flex_1.html
+
+###  display: flex; 会消除margin重叠  会消除掉float 将float变成none 
+flex_margin.html
+
+#    如果你给一个元素添加display:flex; 称之为容器
+#    容器里面的直接子元素，称为项目
+
+#    主轴：在容器当中，项目默认按照从左向右的方向排列 这里的排列方向就是主轴方向，
+
+#    交叉轴：交叉轴就是与主轴垂直的的那个轴  默认方向从上到下
+
+
+# 设置主轴的方向（项目的排列方向）
++ flex-direction:  
+    - row	           默认值。灵活的项目将水平显示，正如一个行一样。   左  ->  右
+    - row-reverse	   与 row 相同，但是以相反的顺序。        左  <-  右
+    - column	       灵活的项目将垂直显示，正如一个列一样。      上  ->  下
+    - column-reverse   与 column 相同，但是以相反的顺序。 上  <-  下
+    - initial	       设置该属性为它的默认值。请参阅 initial。
+    - inherit	       从父元素继承该属性。请参阅 inherit。
+
+flex_direction.html   
+# 设置flex容器是单行或者多行，同时横轴的方向决定了新行堆叠的方向。
++ flex-wrap:
+    - nowrap	       默认值。规定灵活的项目不拆行或不拆列。
+    - wrap	           规定灵活的项目在必要的时候拆行或拆列。
+    - wrap-reverse	   规定灵活的项目在必要的时候拆行或拆列，但是以相反的顺序。
+
+flex_wrap.html 

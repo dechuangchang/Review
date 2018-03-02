@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            display: flex;
+            width: 120px;
+            height: 120px;
+            background: #e4e4e4;
+            border: 3px solid #ddd;
+            border-radius: 10%;
+            padding: 10px;
+            margin: 20px;
+            box-shadow: 2px 2px 5px 1px #00000085;
+            overflow: auto;
+            resize: both;
+        }
+        .s1{
+            flex-flow: row wrap;
+            align-items: center;
+            justify-content: center;
+        }
+        .s2{
+            flex-flow: row wrap;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .s2a{
+            flex-flow: column wrap;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .s3{
+            flex-flow: row wrap;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .s3 div:first-child{
+            align-self: flex-start;
+        }
+        .s3 div:last-child{
+            align-self: flex-end;
+        }
+        .s4{
+            flex-flow: column nowrap;
+            justify-content: space-around;
+        }
+        .s4b{
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+        }
+        .s5,.s6{
+            flex-flow: column nowrap;
+            justify-content: space-around;
+        }
+        .s5 > div,.s6 > div{
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-around;
+            
+        }
+        .s6a{
+            flex-flow: column nowrap;
+            justify-content: space-around;
+        }
+        .s6a > div{
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-around;
+        }
+        .item1{
+            background: #999;
+            height:30px;
+            width:30px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="s6a box">
+        <div>
+            <div class="item1"></div>
+            <div class="item1"></div>
+            <div class="item1"></div>
+        </div>
+        <div>
+            <div class="item1"></div>
+            <div class="item1"></div>
+            <div class="item1"></div>
+        </div>
+        
+    </div>
+    <div class="s6 box">
+        <div>
+            <div class="item1"></div>
+            <div class="item1"></div>
+        </div>
+        <div>
+            <div class="item1"></div>
+            <div class="item1"></div>
+        </div>
+        <div>
+            <div class="item1"></div>
+            <div class="item1"></div>
+        </div>
+    </div>
+    <div class="s5 box">
+        <div>
+            <div class="item1"></div>
+            <div class="item1"></div>
+        </div>
+        <div>
+            <div class="item1"></div>
+        </div>
+        <div>
+            <div class="item1"></div>
+            <div class="item1"></div>
+        </div>
+    </div>
+    <div class="s4 box">
+        <div class="s4b">
+            <div class="item1"></div>
+            <div class="item1"></div>
+        </div>
+        <div class="s4b">
+            <div class="item1"></div>
+            <div class="item1"></div>
+        </div>
+        
+    </div>
+    <div class="s3 box">
+        <div class="item1"></div>
+        <div class="item1"></div>
+        <div class="item1"></div>
+    </div>
+
+    <div class="s2a box">
+        <div class="item1"></div>
+        <div class="item1"></div>
+    </div>
+    <div class="s2 box">
+        <div class="item1"></div>
+        <div class="item1"></div>
+    </div>
+    <div class="s1 box">
+        <div class="item1"></div>
+    </div>
+    
+</body>
+</html>

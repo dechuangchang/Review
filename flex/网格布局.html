@@ -7,6 +7,8 @@
     <title>Flex</title>
     <style>
         .box{
+            width: 500px;
+            height: 200px;
             width: 400px;
             height: 400px;
             background: red;
@@ -16,8 +18,10 @@
             flex-flow: row nowrap;
         }
         .item{
-            height: 60px;
-            background: white;
+            
+            border: 1px solid #fff;
+            flex-grow: 1;
+            /* flex-basis: 50%; */
         }
         .box >div:first-child{
             background: #666;
@@ -25,9 +29,7 @@
         }
         .box >div:last-child{
             background: #333;
-            flex-basis: 100px;
         }
-        
     </style>
 </head>
 <body>
@@ -37,6 +39,9 @@
         </div>
         <div class="item ">
             2
+        </div>
+        <div class="item ">
+            3
         </div>
     </div>
 </body>

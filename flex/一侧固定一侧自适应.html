@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flex</title>
+    <style>
+        .box{
+            width: 100%;
+            height: 200px;
+            min-width: 480px;
+            background: red;
+            resize: both;
+            overflow: auto;
+            display: flex;
+            flex-flow: row nowrap;
+        }
+        .item1{
+            height: 20px;
+            background:#fff;
+            flex: 0 1 300px;
+        }
+        .item2{
+            height: 20px;
+            background: rgb(139, 137, 137);
+            flex: 1 1 auto;
+        }
+        .item3{
+            height: 20px;
+            background:#fff;
+            flex: 0 1 100px;
+        }
+    </style>  
+</head>
+<body>
+    <div class="box">
+        <div class="item1 ">
+            固定
+        </div>
+        <div class="item2 ">
+            自适应
+        </div>
+        <div class="item3 ">
+            固定
+        </div>
+    </div>
+</body>
+</html>

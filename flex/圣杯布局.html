@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        display: flex;
+        flex-flow: column nowrap;
+    }
+    header,footer{
+        background: #111;
+
+    }
+    section{
+        flex-flow: row nowrap;
+        display: flex;
+    }
+    nav{
+        flex: 0 1 100px;
+        background: #555;
+    }
+    .sid{
+        flex: 0 1 100px;
+        background: #999;
+        order: -1;
+    }
+    .main{
+        flex: 1 1 auto;
+        background: #333;
+    } 
+</style>
+
+<body>
+    <header>
+        头部
+    </header>
+    <section>
+        <nav>
+            导航
+        </nav>
+        <div class="main">
+            <p>主体</p>
+            <p>主体</p>
+            <p>主体</p>
+            <p>主体</p>
+            <p>主体</p>
+            <p>主体</p>
+            <p>主体</p>
+            <p>主体</p>
+            <p>主体</p>
+            <p>主体</p>
+            <p>主体</p>
+            <p>主体</p>
+        </div>
+        <div class="sid">
+            侧边栏
+        </div>
+    </section>
+    <footer>
+        底部
+    </footer>
+</body>
+</html>

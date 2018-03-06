@@ -7,12 +7,20 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div id="box"></div>
 </body>
 <script type="text/javascript">
-    var obj = {
-        name:'C',
-        age:'24'
-    }
+    // var obj = {
+    //     name:'C',
+    //     age:'24',
+    //     sex:'男'
+    // }
+    // alert(obj.name)
+
+    var o = document.getElementById('box');
+    console.log(typeof o);
+    o.name = 'c';
+    o.age = '24';
+    console.log(o.age,o.name)
 </script>
 </html>

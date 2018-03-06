@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+<script>
+
+    // function win(){
+    //     var a = 100;
+    //     alert(a); // 100
+    //     alert(this.a); //200
+
+    // }
+
+    // var a = 200;
+    // win()
+
+    // function win(){
+    //     this.style.background = 'red'
+
+    // }
+
+    // var box  = document.getElementById('box')
+    // box.onclick = win
+    function des(){
+        console.log(this[0])
+    }
+    var arr = [1,2,3,4,5,des];
+    arr[5]()
+</script>
+</html>

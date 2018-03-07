@@ -24,15 +24,16 @@
         // console.log(obj)
 
 
-//狗仔函数
+//构造函数
         function People(name,age,sex){
             this.name = name;
             this.age = age;
+            this.cn = age >= 10 ? true : false;
             this.sex = sex;
         }
-        var a = new People('a','18','m');
-        var b = new People('b','18','m');
-        var c = new People('c','18','m');
+        var a = new People('a',18,'m');
+        var b = new People('b',7,'m');
+        var c = new People('c',18,'m');
         console.log(a,b,c)
     </script>
 </html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id='box'>构造函数</div>
+</body>
+    <script>
+       
+        // function People(name,age,sex){
+        //     this.name = name;
+        //     this.age = age;
+        //     this.sex = sex;
+        // }
+        
+        // People.prototype = {
+        //     a:'a',
+        //     b:'b',
+        // }
+        // console.log(a)
+        // console.log(People.prototype === a.__proto__)
+        // var a = new People('a',18,'m');
+        // var b = new People('b',18,'m');
+        // var c = new People('c',18,'m');
+        // console.log(a.a)
+        // console.log(b.a)
+        // console.log(c.a)
+        // console.log(People.prototype)
+
+        // function People(name,age,sex){
+        //     this.name = name;
+        //     this.age = age;
+        //     this.sex = sex;
+        // }
+        // People.prototype = Math;
+        // var a = new People('a',18,'m');
+        // console.log(a.random())
+
+        function People(name,age,sex){
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+        }
+        People.prototype.helloworld = function(){
+            console.log(this.name+': Helloworld')
+        };
+        var a = new People('alex',18,'m');
+        var b = new People('ikki',18,'m');
+        a.helloworld()
+        b.helloworld()
+    </script>
+</html>

@@ -10,21 +10,28 @@
     <div id="box"></div>
 </body>
 <script type="text/javascript">
-    function fn(){
-        alert(this.a)
-    }
-    var obj ={
-        a:1,
-        b:2,
-        c:[
-            {
-                a:3,
-                b:4, 
-                c:fn
-            }
-        ]
-    }
+    // function fn(){
+    //     alert(this.a)
+    // }
+    // var obj ={
+    //     a:1,
+    //     b:2,
+    //     c:[
+    //         {
+    //             a:3,
+    //             b:4, 
+    //             c:fn
+    //         }
+    //     ]
+    // }
+    // obj.c[0].c() // --> 3
 
-    obj.c[0].c() // --> 3
+    // function fn(c,d,r,f,g){
+    //     alert(this.length)  //---> 6
+    // }
+    // function f(a,b){
+    //     arguments[0](1,2,3,4,5)
+    // }
+    // f(fn,6,7,8,9,0)
 </script>
 </html>

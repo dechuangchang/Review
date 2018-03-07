@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function fn(a,b,c){
+        alert(a+b+c)
+        alert(this.age)
+    }
+    var obj = {
+        name:'c',
+        age:'18'
+    }
+    fn.call(obj,1,2,3)
+    fn.apply(obj,[1,2,3])
+</script>
+</html>

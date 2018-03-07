@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id='box'>构造函数</div>
+</body>
+    <script>
+        // function fn(){ 
+        //     alert('你好') 
+        // } 
+        // new fn(); 
+
+        // function fn(name,age,sex){
+        //     this.name = name;
+        //     this.age = age;
+        //     this.sex = sex;
+        // }
+        // var obj = new fn('c','18','m');
+        // console.log(obj)
+
+
+//狗仔函数
+        function People(name,age,sex){
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+        }
+        var a = new People('a','18','m');
+        var b = new People('b','18','m');
+        var c = new People('c','18','m');
+        console.log(a,b,c)
+    </script>
+</html>

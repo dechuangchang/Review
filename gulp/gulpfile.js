@@ -1,10 +1,11 @@
 var gulp  = require('gulp');
 
-// gulp.task('task',['task1'],function(){
-//     console.log('Hello gulp')
-// })
-// gulp.task('task1',function(){
-//     console.log('Hello gulp')
-// })
-
-
+var less  = require('gulp-less');
+var sourcemaps = require('gulp-sourcemaps');
+gulp.task('less',function(){
+    gulp.src('./src/less/index.less')
+        .pipe(sourcemaps.init())
+        .pipe(less())
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest('./src/css'))
+})

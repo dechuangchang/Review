@@ -252,3 +252,23 @@ gulp.task('base64',function(){
 
 ## 代理请求 http-proxy-middleware 
 https://zhuanlan.zhihu.com/p/33765321
+
+```
+gulp.task('server',['less'],function() {
+    browserSync.init({
+        server: {
+            baseDir: "./",
+            index:'./src/index.html',
+            middleware: [proxy]
+        },
+        host: '127.0.0.1',
+        port: 8002,
+        open: false
+    });
+    gulp.watch("./src/less/**.*", ['less']);
+   
+    gulp.watch("./src/*.html").on('change', reload);
+});
+```
+
+# 总之感觉gulp不好用  

@@ -201,3 +201,54 @@ gulp.task('js',function(){
     .pipe(gulp.dest('./src/js'))
 })
 ```
+
+## 图片压缩 gulp-imagemin
+## 只针对修改的文件进行操作gulp-cache *个人感觉不好用
+http://blog.csdn.net/u013063153/article/details/52628506
+
+```
+gulp.task('images',function(){
+    gulp.src('./src/img/*.*')
+    .pipe(cache(imagemin({
+        optimizationLevel: 7, //类型：Number  默认：3  取值范围：0-7（优化等级）
+        progressive: true, //类型：Boolean 默认：false 无损压缩jpg图片
+        interlaced: true, //类型：Boolean 默认：false 隔行扫描gif进行渲染
+        multipass: true //类型：Boolean 默认：false 多次优化svg直到完全优化
+    })))
+    .pipe(gulp.dest('./build/img'));
+})
+
+```
+
+## 雪碧图 （Sprite Image） gulp-css-spriter
+*不好用
+```
+gulp.task('less',function(){ //创建编译less任务
+    gulp.src('./src/less/*.less') //选择编译路径文件
+        .pipe(sourcemaps.init()) //映射程序初始化
+        .pipe(less()) // less编译执行
+        .pipe(spriter({
+            //产出的路径
+            'spriteSheet': './src/img/spritesheet.png',
+            //替换文件中的路径
+            'pathToSpriteSheetFromCSS': '../img/spritesheet.png'
+        }))
+        .pipe(sourcemaps.write()) //映射程序结束
+        .pipe(gulp.dest('./src/css')) //输出到某个文件夹
+})
+```
+# base64图片编码 gulp-base64
+
+```
+gulp.task('base64',function(){
+    gulp.src('./src/css/*.css')
+        .pipe(base64({maxImageSize: 999*1024,}))
+        .pipe(gulp.dest('./src/css/base'))
+})
+//maxImageSize 大小限制
+```
+
+## 本地服务+实时刷新 browser-sync
+
+## 代理请求 http-proxy-middleware 
+https://zhuanlan.zhihu.com/p/33765321

@@ -14,13 +14,13 @@ var spriter = require('gulp-css-spriter');
 var base64 = require('gulp-base64');
 
 var browserSync = require('browser-sync').create();
-var livereload = require('gulp-livereload');
+// var livereload = require('gulp-livereload');
 // 以下两行为代理ajax请求
 const proxyMiddleware = require('http-proxy-middleware')
 const proxy = proxyMiddleware('/api', {target: 'http://112.126.91.237:8888', changeOrigin: true});
+// var sequence = require('gulp-sequence').use(gulp);
 
-// 静态服务器
-gulp.task('server',['less','watch'],function() {
+gulp.task('server',['less'],function() {
     browserSync.init({
         server: {
             baseDir: "./",
@@ -31,19 +31,17 @@ gulp.task('server',['less','watch'],function() {
         port: 8002,
         open: false
     });
-    
+
+    gulp.watch("./src/less/*.less", ['less']);
 });
 
-gulp.task('less',function(){ 
+gulp.task('less',['css'],function(){ 
     gulp.src('./src/less/index.less') 
         .pipe(sourcemaps.init()) 
         .pipe(less()) 
         .pipe(sourcemaps.write()) 
         .pipe(gulp.dest('./build/css'))
-        .pipe(livereload());
+        .pipe(browserSync.reload({stream:true}));
 })
-gulp.task('watch', function() {
-    livereload.listen();
-    gulp.watch('./src/less/*.less', ['less']);
-});
+
 

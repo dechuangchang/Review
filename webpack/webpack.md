@@ -36,3 +36,11 @@ devServer:{
 ## require('uglifyjs-webpack-plugin');
 js压缩
 在plugins里面new(实例化)
+
+```
+ "scripts": {
+    "server": "webpack-dev-server",
+    "dev":"exprot aaa=dev&&webpack", //mac
+    "build": "set aaa=build&webpack" //windows
+  },
+```

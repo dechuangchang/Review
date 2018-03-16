@@ -1,11 +1,20 @@
 const path = require('path');
+const webpack = require('webpack');
 
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+var website = {
+    "publicPath":"http:cdc.canfreee.com/"
+}
+website = {
+    "publicPath":"/assets/img/"
+}
 module.exports = {
     entry:{
-        one:'./src/build.js'
+        one:'./src/build.js',
+        jquery: "jquery"
     },//入口
     output:{
         path:path.resolve(__dirname,'dist'),//输出真是硬盘位置
@@ -25,23 +34,34 @@ module.exports = {
                 {
                     loader: 'url-loader',
                     options: {
-                        limit: 8192,
-                        name:'../img/[name].[ext]'
+                        limit: 1,
+                        name:'[name]_[hash:6].[ext]',
+                        outputPath:'assets/img/',
+                        publicPath:website.publicPath
                     }
                 }
             ]
+        },{
+            test: /\.html$/,
+            use: ['html-withimg-loader']
         }]
     },
     plugins:[
+        new webpack.ProvidePlugin({
+            $:'jquery'
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: "jquery",
+            minChunks: Infinity,
+            filename:"./js/jquery.js"
+        }),
         new UglifyJSPlugin(),
         new HtmlWebpackPlugin({
             minify:{
                 removeAttributeQuotes:true
             },
             hash:true,
-            template:'./src/index.html',
-            title:'webpack',
-            // projectPath:'dist'
+            template:'./src/index.html'
         }),
         new ExtractTextPlugin("assets/css/[name].css"),
     ],

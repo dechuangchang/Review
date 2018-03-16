@@ -1,4 +1,4 @@
 body{
     color: aqua;
-    background: url('../img/w.jpg') no-repeat;
+    background: url('../img/w.jpg') no-repeat 100px 100px;
 }

@@ -73,7 +73,7 @@ module.exports = {
                 use: [{
                 loader: 'babel-loader',
                 options: {
-                    presets: ['es2015','react'],
+                    presets: ['es2015','stage-0','react'],
                     "plugins": [
                         ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": true }] // `style: true` 会加载 less 文件
                     ]
@@ -125,8 +125,8 @@ module.exports = {
               changeOrigin: true,// 如果接口跨域，需要进行这个参数配置
             }
         },
-        // hot:false,
-        // inline:false,
+        hot:false,
+        inline:false,
         host:'cdc.canfreee.com', //ip
         compress:true, // 服务端压缩
         port:'8002' // 端口

@@ -1,0 +1,122 @@
+
+##   resize: both; 加上 overflow: auto; 
+###  可以调整元素的大小 
+flex.html
+
+##   display: flex; 加上 margin: auto;  
+###  实现上下左右剧中 
+flex.html
+
+###  display: flex;父元素下的直接子元素会变成 display:block; 孙子元素无影响 
+flex_1.html
+
+###  display: flex; 会消除margin重叠  会消除掉float 将float变成none 
+flex_margin.html
+
+##    如果你给一个元素添加display:flex; 称之为容器
+##    容器里面的直接子元素，称为项目
+
+##    主轴：在容器当中，项目默认按照从左向右的方向排列 这里的排列方向就是主轴方向，
+
+##    交叉轴：交叉轴就是与主轴垂直的的那个轴  默认方向从上到下 align-items:
+
+#    容器的属性
+
+## 设置主轴的方向（项目的排列方向）
++ flex-direction:  
+    - row	           默认值。灵活的项目将水平显示，正如一个行一样。   左  ->  右
+    - row-reverse	   与 row 相同，但是以相反的顺序。        左  <-  右
+    - column	       灵活的项目将垂直显示，正如一个列一样。      上  ->  下
+    - column-reverse   与 column 相同，但是以相反的顺序。 上  <-  下
+    - initial	       设置该属性为它的默认值。请参阅 initial。
+    - inherit	       从父元素继承该属性。请参阅 inherit。
+
+flex_direction.html   
+
+## align-items 属性定义flex子项在flex容器的当前行的交叉轴方向上的对齐方式。
++ align-items
+    - stretch       默认值。项目被拉伸以适应容器。	
+    - center	    项目位于容器的中心。
+    - flex-start	项目位于容器的开头。	
+    - flex-end	    项目位于容器的结尾。	
+    - baseline	    项目位于容器的基线上。	
+    - initial	    设置该属性为它的默认值。请参阅 initial。
+    - inherit	    从父元素继承该属性。请参阅 inherit。
+
+## 设置flex容器是单行或者多行，同时横轴的方向决定了新行堆叠的方向。
+换行要注意主轴方向和顺序
++ flex-wrap:
+    - nowrap	       默认值。 默认不换行 会压缩每个项目的宽度
+    - wrap	           规定灵活的项目在必要的时候拆行或拆列。
+    - wrap-reverse	   规定灵活的项目在必要的时候拆行或拆列，但是以相反的顺序。
+
+flex_wrap.html 
+
+## flex-wrap+flex-direction 的缩写
+ flex-flow: flex-direction flex-wrap|initial|inherit;
+
+## 设置或检索弹性盒子元素在主轴方向上的对齐方式。
++ justify-content: 
+    - flex-start      默认值。项目位于容器的开头。 左对齐
+    - flex-end        项目位于容器的结尾。右对齐
+    - center          项目位于容器的中心。居中
+    - space-between   项目位于各行之间留有空白的容器内。 第一个和最后一个项目 距离0
+    - space-around    项目位于各行之前、之间、之后都留有空白的容器内。 第一个和最后一个项目0.5 第一个和最后一个项目 距离0.5
+    - space-evenly    居中左右对齐 第一个和最后一个项目 距离1
+    - initial         设置该属性为它的默认值。请参阅 initial。
+    - inherit         从父元素继承该属性。请参阅 inherit。
+
+justify_content.html
+
+
+
+
+# 项目的属性
+
+
+## align-self 属性定义flex子项单独在侧轴（交叉轴）方向上的对齐方式。
+   align-self与容器的align-items不一样  以align-items为准
++ align-self
+    - auto	        默认值。元素继承了它的父容器的 align-items 属性
+    - stretch	    元素被拉伸以适应容器。
+    - center	    元素位于容器的中心。	
+    - flex-start    元素位于容器的开头。
+    - flex-end	    元素位于容器的结尾。
+    - baseline	    元素位于容器的基线上。	
+    - initial	    设置该属性为它的默认值。请参阅 initial。
+    - inherit	    从父元素继承该属性。请参阅 inherit。
+
+## order 改变项目在主轴上排列的顺序 （注意主轴方向）
+   order 值（number）越小越靠前 可为负数 
+   order.html
+
+## flex-grow 放大 剩余空间分配 在主轴上有空间的时候才能生效 （为元素占取剩余空间）
+flex-grow 把剩余空间分成所有flex-grow 值的份数  然后每一份的大小等于 剩余空间/份数
+注意：如果元素不是弹性盒对象的元素，则 flex-grow 属性不起作用。 不能为负数
+
+## flex-shrink 空间不够分配自动缩小 在主轴上有没有空间的时候并且不能换行才能生效
+flex-shrink 默认值为 1 所有的项目都被压缩 被压缩的大小不一样 越大被压缩的越厉害
+如果是 0 就不会被压缩
+计算步骤：row
+总差值 = 容器 - 所有项目值;
+加权和  所有项目 (shrink * 项目值)
+缩小后的宽度   项目值 - 项目值 * shrink / 加权和 * 总差值
+300 -300 * 4 /3300 * 200
+flex-shrink.html
+
+## flex-basis 项目在主轴上的（row）宽度 (column) 高度  
+会使同一个标签上的width height 不生效
+
+flex_basis.html
+
+flex: grow shrink basis;
+
+# 基本网格布局
+ 1.如果搜友项目有相同的结构 可以设置flex-grow: 为相同即可
+ 2.如果所有项目有可能不一样的结构，可以设置flex-basis百分比开达到等宽的效果
+
+margin:auto; 在计算时会把所有的剩余空间进行计算分配
+
+
+
+

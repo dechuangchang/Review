@@ -234,3 +234,121 @@ isurl
 
 #Extend （扩展）
 extend是一个Less伪类，它会合并它所在的选择其和它所匹配的引用。
+```
+nav ul {
+  &:extend(.inline);
+  background: blue;
+}
+.inline {
+  color: red;
+}
+输出：
+
+nav ul {
+  background: blue;
+}
+.inline,
+nav ul {
+  color: red;
+}
+```
+
+
+
+```
+
+@import './common/lib.less';
+@master : rgb(238, 44, 109);
+@header : rgb(255, 255, 255);
+@body   : rgba(111, 194, 118, 0.397); 
+@kuandu : width;
+@logo   : 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/';
+@logos  : '../img/';
+@marginLeft: 20px;
+
+body{
+    .compare(@width,@height) when (@width=1200){
+        background:@header url("@{logo}logo_top_ca79a146.png") no-repeat center;
+    }
+    .compare(@width,@height) when not(@width=1200){
+        background:@body url("@{logo}logo_top_ca79a146.png") no-repeat center;
+    }
+   
+    .compare(1201px,600px);
+    .border(@width:1px,@style:solid,@color:#000){
+        border: @arguments;
+    }
+    .triangle(@direction,@width:10px,@color:#333){
+        width: 0px;
+        height: 0px;
+        display: inline-block;
+        border: @width solid rgba(0, 0, 0, 0);
+    }
+    .triangle(top,@width:10px,@color:#333){
+        border-top: @width solid @color;
+    }
+    .triangle(bottom,@width:10px,@color:#333){
+        border-bottom: @width solid @color;
+    }
+    .triangle(left,@width:10px,@color:#333){
+        border-left: @width solid @color;
+    }
+    .triangle(right,@width:10px,@color:#333){
+        border-right: @width solid @color;
+    }
+   
+    
+    .conten{
+        display: inline-block;
+        margin-left: @marginLeft ;
+        &_ok {
+            color: red;
+            margin-left: @marginLeft;
+        }
+       .sj{
+            .triangle(top,10px,#333);
+            @media screen and(max-width: 1200px){
+                .triangle(left,10px,red);
+            }
+        }
+        
+        .@{kuandu} {
+            .border( 1px,solid,@master);
+            @{kuandu}:400px;
+            list-style: none;
+            padding: 0px;
+            margin: 0px;
+            .loop(5);
+            .loop(@i) when(@i >= 1){
+                .li_@{i} {
+                    background: #111*@i;
+                    width: 50px+(20*@i);
+                }
+                .loop((@i - 1));
+            };
+           
+            li{
+                list-style: none ;
+                height: 25px;
+                line-height: 25px;
+                width: 50px;
+                margin-left: @marginLeft;
+                a{
+                    text-decoration: none ;
+                    color: @header;
+                    &:hover{
+                        color: @master;
+                    }
+                }
+                
+            }
+        }
+    }
+}
+
+
+
+```
+
+hammer.js  
+移动端手势

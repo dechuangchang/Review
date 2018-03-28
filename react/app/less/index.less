@@ -2,21 +2,36 @@
 @import '~antd/dist/antd.css';
 body{
     background: rgb(171, 235, 171);
-    #app{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    #app,#Router{
+        width: 100%;
         height: 100%;
-        display: flex;
-        #Router{
-            margin: auto;
+        .header{
+            background: rgb(106, 230, 106);
+            line-height: 50px;
+            text-align: center;
             display: flex;
-            
-            .homebox{
-                display: flex;
-                margin: auto;
-                width: 400px;
-                justify-content: space-between;
+            .nav{
                 
+                display: flex;
+                width: 500px;
+                height: 100%;
+                margin: 0px auto;
+                justify-content: space-between;
             }
         }
+        .homebox{
+            display: flex;
+            width: 100%;
+            .box{
+                background: chocolate;
+                height: 100px;
+                width: 100px;
+            }
+        }
+        
     }
     
     

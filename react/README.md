@@ -96,3 +96,5 @@
 
  父=>子 ref
  子=>父 props
+
+router js跳转this.props.history.push('./ass/as')

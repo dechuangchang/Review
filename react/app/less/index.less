@@ -23,7 +23,7 @@ body{
             }
         }
         .homebox{
-            display: flex;
+            // display: flex;
             width: 100%;
             .box{
                 background: chocolate;
@@ -31,8 +31,39 @@ body{
                 width: 100px;
             }
         }
+        .nomatch{
+            background: rgb(228, 31, 31);
+        }
+        .router1{
+            background: rgb(21, 212, 95);
+        }
+        .router2{
+            background: rgb(95, 13, 248);
+        }
+        .router3{
+            background: #777;
+        }
         
     }
     
     
 }
+.example-enter {
+opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+opacity: 1;
+transition: opacity 500ms ease-in;
+}
+
+.example-leave {
+opacity: 1;
+transition: opacity 3000ms ease-in;
+}
+
+.example-leave.example-leave-active {
+opacity: 0.01;
+transition: opacity 3000ms ease-in;
+}
+  

@@ -6,10 +6,10 @@ import { Redirect,HashRouter ,IndexRoute ,Switch, Route, Link } from 'react-rout
 import Header from './common/header.js';
 import Home from './common/homepage.js';
 
-import Router1 from './router1/main.js';
-import Router2 from './router2/main.js';
-import Router3 from './router3/main.js';
-import NoMatch from './nomatch/main.js';
+import Router1 from '../widget/router1/main.js';
+import Router2 from '../widget/router2/main.js';
+import Router3 from '../widget/router3/main.js';
+import NoMatch from '../widget/nomatch/main.js';
 
 class App extends Component{
     constructor(props){
@@ -27,16 +27,18 @@ class App extends Component{
     render(){
         return (
             <HashRouter>
+                <Route render={({ location }) => (
                 <div id='Router'>
                     <Header/>
                     <Switch>
-                        <Route exact path="/" component={Home}/>
-                        <Route exact path="/router1/:name?" component={Router1}/>
-                        <Route exact path="/router2" component={Router2}/>
-                        <Route exact path="/router3" component={Router3}/>
-                        <Route  component={NoMatch}/>
-                    </Switch>    
+                        <Route location={location} key={location.key} exact path="/" component={Home}/>
+                        <Route location={location} key={location.key} exact path="/router1/:name?" component={Router1}/>
+                        <Route location={location} key={location.key} exact path="/router2" component={Router2}/>
+                        <Route location={location} key={location.key} exact path="/router3" component={Router3}/>
+                        <Route location={location} key={location.key}  component={NoMatch}/>
+                    </Switch>   
                 </div>
+                )}/>
             </HashRouter>
         )
     }

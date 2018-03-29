@@ -1,20 +1,33 @@
 import React, { Component } from 'react';
-import ReactDom from 'react-dom';
 import { Button } from 'antd';
-
-
+import { connect } from 'react-redux';
+import {increment,recrement} from './actions/index.js';
 class App extends Component{
     constructor(props){
         super(props)
     }
+    
     render(){
+        console.log(this.props)
+        const {increment,recrement} = this.props;
         return(
             <div>
-                <h1>{this.props.value}</h1>
-                <Button onClick={this.props.onAdd}>++</Button>
-                <Button onClick={this.props.onAdd}>--</Button>
+                <h1>{this.props.counter}</h1>
+                <Button onClick={()=>increment('+++')}>++</Button>
+                <Button onClick={()=>recrement('---')}>--</Button>
             </div>
         )
     }
 }
-export default App
+const mapStateToProps  = (state) =>{
+    return {
+        counter:state.counter
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+      increment: (name) => { dispatch(increment(name)) },
+      recrement: (name) => { dispatch(recrement(name)) }
+    }
+};
+export default connect(mapStateToProps,mapDispatchToProps)(App)

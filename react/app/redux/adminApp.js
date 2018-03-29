@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button } from 'antd';
 import { connect } from 'react-redux';
 import {increment,recrement} from './actions/index.js';
+import { bindActionCreators } from 'redux';
 class App extends Component{
     constructor(props){
         super(props)
@@ -25,9 +26,10 @@ const mapStateToProps  = (state) =>{
     }
 }
 const mapDispatchToProps = (dispatch) => {
-    return {
-      increment: (name) => { dispatch(increment(name)) },
-      recrement: (name) => { dispatch(recrement(name)) }
-    }
+    return bindActionCreators({ increment,recrement }, dispatch);
+    // return {
+    //   increment: (name) => { dispatch(increment(name)) },
+    //   recrement: (name) => { dispatch(recrement(name)) }
+    // }
 };
 export default connect(mapStateToProps,mapDispatchToProps)(App)

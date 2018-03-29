@@ -25,11 +25,11 @@ const mapStateToProps  = (state) =>{
         counter:state.counter
     }
 }
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ increment,recrement }, dispatch);
+// const mapDispatchToProps = (dispatch) => {
+//     return bindActionCreators({ increment,recrement }, dispatch);
     // return {
     //   increment: (name) => { dispatch(increment(name)) },
     //   recrement: (name) => { dispatch(recrement(name)) }
     // }
-};
-export default connect(mapStateToProps,mapDispatchToProps)(App)
+// };
+export default connect(mapStateToProps,{increment,recrement})(App)

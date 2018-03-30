@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div className="App">
         {this.props.value}
-        <button onClick={()=>add()} type="button" className="btn btn-success">++</button>
+        <button onClick={()=>add('cdc','data')} type="button" className="btn btn-success">++</button>
         <button onClick={()=>ree()} type="button" className="btn btn-warning">--</button>
       </div>
     );
@@ -27,7 +27,7 @@ const mapStateToProps = (state,ownProps)=>{
 const mapDispatchToProps = (dispatch)=>{
    
     return{
-        add:()=>{dispatch(add('++',{a:1,b:2}))},
+        add:bindActionCreators(add,dispatch),
         ree:()=>{dispatch(ree('--',{a:1,b:2}))},
     }
     

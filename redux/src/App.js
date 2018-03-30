@@ -24,12 +24,4 @@ const mapStateToProps = (state,ownProps)=>{
     }
 }
 
-const mapDispatchToProps = (dispatch)=>{
-   
-    return bindActionCreators({
-        add,
-        ree
-    },dispatch)
-    
-}
-export default connect(mapStateToProps,mapDispatchToProps)(App);
+export default connect(mapStateToProps,{add,ree})(App);

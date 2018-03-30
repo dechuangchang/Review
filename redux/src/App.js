@@ -6,12 +6,12 @@ import { bindActionCreators } from 'redux'
 class App extends Component {
   
   render() {
-    console.log(this.props.dispatch)
+    const {dispatch} = this.props
     return (
       <div className="App">
         {this.props.value}
-        <button onClick={()=> this.props.dispatch(add())} type="button" className="btn btn-success">++</button>
-        <button type="button" className="btn btn-warning">--</button>
+        <button onClick={()=>dispatch(add('++',{a:1,b:2}))} type="button" className="btn btn-success">++</button>
+        <button onClick={()=>dispatch(ree('--',{a:1,b:2}))} type="button" className="btn btn-warning">--</button>
       </div>
     );
   }

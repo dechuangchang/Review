@@ -1,4 +1,6 @@
 const counter = (state=10,action={})=>{
+    //action 数据来源就是action里面定义函数return
+    console.log(action)
     switch (action.type) {
         case 'ADD':
             return state+1

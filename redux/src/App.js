@@ -6,12 +6,12 @@ import { bindActionCreators } from 'redux'
 class App extends Component {
   
   render() {
-    const {dispatch} = this.props
+    const{add,ree} = this.props
     return (
       <div className="App">
         {this.props.value}
-        <button onClick={()=>dispatch(add('++',{a:1,b:2}))} type="button" className="btn btn-success">++</button>
-        <button onClick={()=>dispatch(ree('--',{a:1,b:2}))} type="button" className="btn btn-warning">--</button>
+        <button onClick={()=>add()} type="button" className="btn btn-success">++</button>
+        <button onClick={()=>ree()} type="button" className="btn btn-warning">--</button>
       </div>
     );
   }
@@ -24,11 +24,12 @@ const mapStateToProps = (state,ownProps)=>{
     }
 }
 
-// const mapDispatchToProps = (dispatch)=>{
+const mapDispatchToProps = (dispatch)=>{
    
-//     return{
-//         dispatch:bindActionCreators(dispatch)
-//     }
+    return{
+        add:()=>{dispatch(add('++',{a:1,b:2}))},
+        ree:()=>{dispatch(ree('--',{a:1,b:2}))},
+    }
     
-// }
-export default connect(mapStateToProps)(App);
+}
+export default connect(mapStateToProps,mapDispatchToProps)(App);

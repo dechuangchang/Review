@@ -3,6 +3,6 @@ import counter from './counter.js';
 import user from './user.js';
 const rootReducer = combineReducers({
     counter,
-    user
+    email:user
 })
 export default rootReducer;

@@ -3,16 +3,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from './actions/index.js';
-
+import User from './components/User.js'
 class App extends Component {
   
   render() {
-    const{add,ree} = this.props;
+    const {add,ree} = this.props;
     return (
       <div className="App">
         {this.props.value}
         <button onClick={()=>add(1,2)} type="button" className="btn btn-success">++</button>
         <button onClick={()=>ree(9,8)} type="button" className="btn btn-warning">--</button>
+        <User/>
       </div>
     );
   }

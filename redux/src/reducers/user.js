@@ -1,11 +1,19 @@
-const user = (state='cdc',action={})=>{
+const initialState ={
+    isFetching:false,
+    err:null,
+    user:{}
+}
+const email = (initialState={},action={})=>{
     switch (action.type) {
-        // case 'ADD':
-        //     return state+1
-        // case 'REE':
-        //     return state-1
-       
-        default: return state
+        case 'EMAIL':
+        console.log(action)
+            return {
+                isFetching:false,
+                err:null,
+                email:action.data
+            }
+        
+        default: return initialState
     }
 }
-export default user;
+export default email;

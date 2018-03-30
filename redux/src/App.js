@@ -7,7 +7,7 @@ import * as actions from './actions/index.js';
 class App extends Component {
   
   render() {
-    const{add,ree} = this.props
+    const{add,ree} = this.props;
     return (
       <div className="App">
         {this.props.value}

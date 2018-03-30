@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
- import {add,ree} from './actions/index.js'
+ import * as actions from './actions/index.js'
 class App extends Component {
   
   render() {
@@ -24,4 +24,9 @@ const mapStateToProps = (state,ownProps)=>{
     }
 }
 
-export default connect(mapStateToProps,{add,ree})(App);
+const mapDispatchToProps = (dispatch)=>{
+   
+    return bindActionCreators(actions,dispatch)
+    
+}
+export default connect(mapStateToProps,mapDispatchToProps)(App);

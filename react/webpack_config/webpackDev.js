@@ -7,7 +7,9 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 var entry = {
     'index':'./app/js/index.js',
     'admin':'./app/js/admin.js',
-    'jquery': "jquery"
+    'jquery': "jquery",
+    'axios':'axios'
+    
 }
 console.log('dev')
 module.exports = {
@@ -86,7 +88,8 @@ module.exports = {
     },
     plugins:[
         new webpack.ProvidePlugin({
-            $:'jquery'
+            $:'jquery',
+            'axios':'axios'
         }),
         new UglifyJSPlugin(),
         new HtmlWebpackPlugin({
@@ -95,7 +98,7 @@ module.exports = {
             },
             hash:true,
             filename: 'index.html',
-            chunks: ['jquery','index'],
+            chunks: ['jquery','axios','index'],
             template:'./app/index.html'
         }),
         new HtmlWebpackPlugin({
@@ -104,7 +107,7 @@ module.exports = {
             },
             hash:true,
             filename: 'admin.html',
-            chunks: ['jquery','admin'],
+            chunks: ['jquery','axios','admin'],
             template:'./app/admin.html'
         }),
         new ExtractTextPlugin("./css/[name].css"),

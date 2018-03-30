@@ -8,7 +8,8 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 var entry = {
     index:'./app/js/index.js',
     admin:'./app/js/admin.js',
-    jquery: "jquery"
+    jquery: "jquery",
+    axios:'axios'
 }
 console.log('server')
 module.exports = {
@@ -92,7 +93,8 @@ module.exports = {
     },
     plugins:[
         new webpack.ProvidePlugin({
-            $:'jquery'
+            $:'jquery',
+            axios:'axios'
         }),
         new HtmlWebpackPlugin({
             minify:{
@@ -100,7 +102,7 @@ module.exports = {
             },
             hash:true,
             filename: 'index.html',
-            chunks: ['index','jquery'],
+            chunks: ['index','axios','jquery'],
             template:'./app/index.html'
         }),
         new HtmlWebpackPlugin({
@@ -109,7 +111,7 @@ module.exports = {
             },
             hash:true,
             filename: 'admin.html',
-            chunks: ['admin','jquery'],
+            chunks: ['admin','axios','jquery'],
             template:'./app/admin.html'
         }),
         new ExtractTextPlugin("./css/[name].css"),
@@ -123,7 +125,7 @@ module.exports = {
         contentBase:path.resolve(__dirname,'./app/'), //服务器根路径
         proxy: {
             '/api': {// '/api':匹配项
-              target: 'http://112.126.91.237:8888',// 接口的域名
+              target: 'http://mobilecdn.kugou.com',// 接口的域名
               changeOrigin: true,// 如果接口跨域，需要进行这个参数配置
             }
         },

@@ -13,28 +13,39 @@ class Home extends Component {
 
     }
     componentDidMount() {
-
+        axios({
+            method: 'get',
+            url: '/api/v3/search/song',
+            params: {
+                keyword : '仙剑',  // 搜索关键字
+                page: 1,          // 第几页
+                pagesize: 10,    // 一页几个
+                format:'jsonp'   // 必传参数，写死
+            }
+        })
+        axios({
+            method: 'get',
+            headers:{
+                'Access-Control-Allow-Origin':'*',
+                'Access-Control-Allow-Methods':'POST',
+                'Access-Control-Allow-Headers':'x-requested-with,content-type'
+            },
+            url: 'http://m.kugou.com/app/i/getSongInfo.php',
+            params: {
+                hash : "97394a77e8461db7911b552f43ea4770",  // 歌曲 hash值
+                cmd : 'playInfo',       // 写死
+                format:'jsonp'          // 写死
+            }
+        })
     }
     componentWillReceiveProps(props) {
 
     }
-    click= (type)=>{
-        if(type){
-            this.setState({
-                num:this.state.num+1 
-            })
-        }else{
-            this.setState({
-                num:this.state.num-1 
-            })
-        }
-    }
+    
     render() {
         return (
             <div className='homebox'>
-                <p>{this.state.num}</p>
-                <Button onClick={()=>this.click(true)}>++</Button>
-                <Button onClick={()=>this.click(false)}>--</Button>
+                
             </div>
         )
     }

@@ -6,20 +6,18 @@ import * as actions from '../actions/index.js';
 class User extends Component{
     
     render(){
-        let {user,value} = this.props;
-        console.log(this.props)
+        let {user,data} = this.props;
         return(
             <div>
-                {value.email}
+                {data.err ? data.err : data.isFetching? '加载中。。' :data.email }
                 <button  onClick={()=>user()} type="button" className="btn btn-success">user</button>
             </div>
         )
     }
 }
 const mapStateToProps = (state,ownProps)=>{
-    
     return{
-        value:state.email
+        data:state.email
     }
 }
 

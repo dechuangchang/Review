@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {ADD,REE,EMAIL} from '../constants/index.js';
+import {ADD,REE} from '../constants/index.js';
 
 export const add = (name,data)=>{
     return dispatch => {
@@ -20,17 +20,29 @@ export const ree = (name,data)=>{
     }
 }
 export const user = (name,data)=>{
-    return dispatch => {
+    // return dispatch => {
+    //     dispatch({
+    //         type:'GETSTATE'
+    //     })
+    //     axios.get('https://randomuser.me/apsi/')
         
-        axios.get('https://randomuser.me/api/')
-        .then(res=>{
-            dispatch({
-                type:EMAIL,
-                data:res.data.results[0].email
-            })
-        },err=>{
-            console.log(err)
-        })
+    //     .then(res=>{
+    //         dispatch({
+    //             type:EMAIL,
+    //             email:res.data.results[0].email
+    //         })
+    //     })
+    //     .catch(error=>{
+    //         dispatch({
+    //             type:'ERROR',
+    //             error:error.message
+    //         })
+    //     })
         
+    // }
+    return {
+        type:'LOAD_USER',
+        payload:axios.get('https://randomuser.me/api/')
     }
 }
+

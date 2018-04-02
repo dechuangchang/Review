@@ -10,6 +10,14 @@ const configureStore = (preloadedStart) => {
         preloadedStart,
         applyMiddleware(logger,ReduxThunk,promiseMiddleware())
     );
+
+    if (process.env.NODE_ENV !== "production") {
+        if (module.hot) {
+          module.hot.accept('../reducers/index.js', () => {
+            store.replaceReducer(rootReducer)
+          })
+        }
+    }
     return store
 }
 export default configureStore

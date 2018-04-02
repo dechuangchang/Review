@@ -9,7 +9,7 @@ export const add = (name,data)=>{
                 name,
                 data
             })
-        },1000)
+        },1)
     }
 }
 export const ree = (name,data)=>{

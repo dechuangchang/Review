@@ -1,2 +1,2 @@
 var oRoot =  document.getElementById('root');
-oRoot.innerHTML='webpack4------c-+'
+oRoot.innerHTML='webpack4------'

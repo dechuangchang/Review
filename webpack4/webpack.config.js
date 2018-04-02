@@ -4,8 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
     entry:{
-        index : './src/index.js',
-        index2 : './src/index2.js'
+        index : './src/js/index.js',
+        index2 : './src/js/index2.js'
     }
     ,//入口
     output:{
@@ -47,7 +47,9 @@ module.exports = {
     devServer:{
         contentBase: path.resolve(__dirname, "dist"),
         index: 'index1.html',
-        port: 9000
+        port: 9000,
+        hot:false,
+        inline: false
     }
     //服务
 };

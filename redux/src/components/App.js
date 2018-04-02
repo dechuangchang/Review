@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as actions from './actions/index.js';
-import User from './components/User.js'
+import * as actions from '../actions/index.js';
+import User from './User.js'
 class App extends Component {
   
   render() {

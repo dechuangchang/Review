@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ch">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div id="app">
+        <p>{{ message }}</p>
+        
+        <div v-if="num >= 0">
+            随机数 {{num}}
+            <!-- 当 v-if 与 v-for 一起使用时，v-for 具有比 v-if 更高的优先级。 -->
+            <div v-for='(item,index) in arr'>
+                {{index}}
+                <span v-if="num === index">{{item}}</span>
+            </div>
+        </div>
+        <div v-for='(value,key,index) in json'>
+            {{ index+1 }}.{{ key }}: {{ value }}
+        </div>
+        <button @click='ojbk'>Button</button>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="./app.js"></script>
+
+</html>

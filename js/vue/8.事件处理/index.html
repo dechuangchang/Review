@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ch">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body >
+    <div id="app">
+        <button @click='reverse'>reverse</button>
+        <button @click='add("->",$event)'>ADD</button>
+        <ul>
+            <li v-for='(item,index) in arr'>
+                {{item}}
+            </li>
+        </ul>
+        <input @keyup='keyup($event)'>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="./app.js"></script>
+
+</html>

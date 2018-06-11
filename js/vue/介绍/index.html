@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ch">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div id="app">
+        <span v-bind:title="message">
+            鼠标悬停几秒钟查看此处动态绑定的提示信息！
+        </span>
+        <p v-if="seen">现在你看到我了</p>
+        <ul>
+            <li v-for='(item,index) in items'>
+                {{`${index}+${item.num}`}} 
+            </li>
+            
+        </ul>
+        <ol>
+            <todo-item 
+            v-for="(item,index) in items"
+            v-bind:todo="item.num"
+            v-bind:index="index"
+            v-bind:key="index"></todo-item>
+        </ol>
+        
+        <button v-on:click='reverse' >反转</button>
+        
+        <p>{{form.name}}</p>
+        <input v-model='form.name' />
+    
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="./app.js"></script>
+
+</html>

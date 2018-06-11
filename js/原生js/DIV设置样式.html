@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ch">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background: #eee;
+    }
+
+    .operation {
+        line-height: 40px;
+        font-size: 20px;
+    }
+
+    #button {
+        vertical-align: 2px;
+        padding: 10px 20px;
+        background: red;
+        color: white;
+        border-radius: 6px;
+        outline: none;
+    }
+
+    #box {
+        border: 10px solid black;
+        width: 100px;
+        height: 100px;
+        background: white;
+    }
+
+    #mask {
+        background: rgba(0, 0, 0, 0.5);
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        display: none;
+    }
+
+    #style-box {
+        display: flex;
+        opacity: 1;
+        background: white;
+        margin: auto;
+        width: 300px;
+        flex-direction: column;
+    }
+
+    .item {
+        margin: 10px 0px;
+    }
+
+    .color span {
+        color: #fff;
+    }
+
+    span {
+        display: inline-block;
+        width: 30px;
+        line-height: 30px;
+        text-align: center;
+        cursor: pointer;
+        border: 1px solid rgb(128, 128, 128);
+        background: #eee;
+
+    }
+</style>
+
+<body>
+    <div class="operation">
+        请为下面的DIV设置样式：
+        <button id="button">
+            点击设置
+        </button>
+
+    </div>
+    <div id="box">
+
+    </div>
+    <div id="mask">
+        <div id="style-box">
+            <ul class="items">
+                <li id="color-box" class="item color">
+                    请选择背景色:
+                    <span style="background: red">
+                        红
+                    </span>
+                    <span style="background: yellow">
+                        黄
+                    </span>
+                    <span style="background: blue">
+                        蓝
+                    </span>
+                </li>
+                <li id="width-box" class="item">
+                    请选择宽(px):
+                    <span>
+                        200
+                    </span>
+                    <span>
+                        300
+                    </span>
+                    <span>
+                        400
+                    </span>
+                </li>
+                <li id="height-box" class="item">
+                    请选择高(px):
+                    <span>
+                        200
+                    </span>
+                    <span>
+                        300
+                    </span>
+                    <span>
+                        400
+                    </span>
+                </li>
+            </ul>
+            <p style="text-align: center">
+                <button id="no">
+                    恢复
+                </button>
+                <button id="yes">
+                    确定
+                </button>
+            </p>
+        </div>
+    </div>
+</body>
+<script>
+    var styleBox = {
+        height: '100px',
+        width: '100px',
+        backgroundColor: 'white'
+    }
+
+    //Dom获取
+    var oButton = document.getElementById('button');
+    var oYes = document.getElementById('yes');
+    var oNo = document.getElementById('no');
+    var oMask = document.getElementById('mask');
+    var oBox = document.getElementById('box');
+
+    var oColor = document.getElementById('color-box');
+    var oWidth = document.getElementById('width-box');
+    var oHeight = document.getElementById('height-box');
+
+    //事件
+    oButton.onclick = show;
+    oYes.onclick = function () {
+        yesStyle()
+        hide()
+    };
+    oNo.onclick = function () {
+        boxHeight(styleBox.height)
+        boxWidth(styleBox.width)
+        bgColor(styleBox.backgroundColor)
+        hide()
+    };
+
+
+    oColor.getElementsByTagName('span')[0].onclick = function () {
+        bgColor('red');
+    }
+    oColor.getElementsByTagName('span')[1].onclick = function () {
+        bgColor('yellow');
+    }
+    oColor.getElementsByTagName('span')[2].onclick = function () {
+        bgColor('blue');
+    }
+
+    oWidth.getElementsByTagName('span')[0].onclick = function () {
+        boxWidth('200px');
+    }
+    oWidth.getElementsByTagName('span')[1].onclick = function () {
+        boxWidth('300px');
+    }
+    oWidth.getElementsByTagName('span')[2].onclick = function () {
+        boxWidth('400px');
+    }
+
+    oHeight.getElementsByTagName('span')[0].onclick = function () {
+        boxHeight('200px');
+    }
+    oHeight.getElementsByTagName('span')[1].onclick = function () {
+        boxHeight('300px');
+    }
+    oHeight.getElementsByTagName('span')[2].onclick = function () {
+        boxHeight('400px');
+    }
+
+
+
+    //函数
+    function boxHeight(num) {
+        oBox.style.height = num;
+    } 
+    function boxWidth(num) {
+        oBox.style.width = num;
+    }
+    function bgColor(color) {
+        oBox.style.backgroundColor = color;
+    }
+    function yesStyle() {
+
+        styleBox = {
+            height: oBox.style.height ? oBox.style.height : '100px',
+            width: oBox.style.width ? oBox.style.width : '100px',
+            backgroundColor: oBox.style.backgroundColor ? oBox.style.backgroundColor : 'white'
+        }
+        console.log(styleBox)
+    }
+    function show() {
+        oMask.style.display = 'flex'
+    }
+    function hide() {
+        oMask.style.display = 'none'
+    }
+</script>
+
+</html>

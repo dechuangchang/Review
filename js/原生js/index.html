@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    ul,li{
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+    }
+    .select{
+        margin: 20px;
+        width: 100px;
+        background: red;
+    }
+    .items{
+        border: 1px solid black;
+        border-bottom:none;
+        display: none;
+        /* display: block; */
+    }
+    .items li{
+        border-bottom: 1px solid black;
+    }
+</style>
+<body>
+    <ul>
+        <li class="select"> 
+            <button id="button" >button</button>
+            <ul id="items" class="items">
+                <li>item1</li>
+                <li>item2</li>
+                <li>item3</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+<script>
+    var oButton = document.getElementById('button');
+    // var oItem = document.getElementById('items');
+    var oItem = document.getElementsByClassName('items')[0];
+    var oSelect = document.getElementsByClassName('select')[0];
+    oSelect.onmousemove = function(){
+        oItem.style.display = 'block'
+    }
+    oSelect.onmouseout = function(event){
+        oItem.style.display = 'none';
+    }
+    
+</script>
+</html>

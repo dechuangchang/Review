@@ -10,15 +10,29 @@
     
 </body>
 <script>
-    function fn(a,b,c){
-        alert(a+b+c)
-        alert(this.age)
+    // function fn(a,b,c){
+    //     alert(a+b+c)
+    //     alert(this.age)
+    // }
+    // var obj = {
+    //     name:'c',
+    //     age:'18'
+    // }
+    // fn.call(obj,1,2,3)
+    // fn.apply(obj,[1,2,3])
+    
+    
+    function Add(){
+        this.a = 1;
+        // Add2.call(this) // 继承
     }
-    var obj = {
-        name:'c',
-        age:'18'
+    function Add2(){
+        this.b = 2;
+        
     }
-    fn.call(obj,1,2,3)
-    fn.apply(obj,[1,2,3])
+    // Add.prototype = new Add2() //继承
+    var a = new Add();
+    
+    console.log(a.a,a.b)
 </script>
 </html>

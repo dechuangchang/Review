@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ch">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="text" type="text" value="">
+    <select name="123" id="select">
+        <option value="1">item1</option>
+        <option value="2">item2</option>
+        <option value="3">item3</option>
+        <option value="4">item4</option>
+    </select>
+    <input id="button" type="button" value="button" />
+    <p id="p">dfsdfsd</p>
+</body>
+<script>
+    window.onload = function () {
+        var oBut = document.getElementById('button');
+        var oText = document.getElementById('text')
+        var oSelect = document.getElementById('select')
+        var oP = document.getElementById('p')
+        oBut.onclick = function () {
+            // console.log(oBut.value)
+            // console.log(oBut.id)
+            // console.log(oBut.type)
+            // console.log(oText.value)
+            // console.log(oSelect.value)
+            console.log(oP.innerText)
+            console.log(oP.innerHTML)
+        }
+        
+        oSelect.onchange = function(e){
+            var index = oSelect.selectedIndex;
+            console.log('text---'+oSelect.options[index].text);
+            console.log('value---'+oSelect.options[index].value)
+            console.log('index---'+oSelect.selectedIndex)
+            oSelect.value = '2'
+            oText.value = oSelect.options[index].text
+        }
+
+
+    }
+</script>
+
+</html>

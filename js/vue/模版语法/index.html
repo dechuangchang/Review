@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ch">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div id="app">
+       <h1 v-once >v-once  {{msg}}{{num}}</h1>
+       <h1>HeHe {{msg}}{{num}}</h1>
+       <button v-bind:disabled='disabled' v-on:click='add'>Add</button>
+       <div v-bind:title='html'>
+           {{html}}
+       </div>
+       {{disabled ? 1 : 2 }}
+       <input type="text" v-bind:title="disabled ? 'a':'b'" v-model='msg' />
+       <div v-html='html'> </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="./app.js"></script>
+
+</html>
